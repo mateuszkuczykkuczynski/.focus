@@ -46,3 +46,15 @@ export const useAuthStore = defineStore('auth', {
   },
 });
 
+// For later usage
+// Set up Axios interceptor
+// axios.interceptors.request.use(async (config) => {
+//   const authStore = useAuthStore();
+//   if (authStore.accessToken && !authStore.isAccessTokenValid) {
+//     const newAccessToken = await authStore.refreshAccessToken();
+//     config.headers['Authorization'] = `JWT ${newAccessToken}`;
+//   }
+//   return config;
+// }, (error) => {
+//   return Promise.reject(error);
+// });
