@@ -23,7 +23,7 @@ export default {
   props: {
     message: {
       type: String,
-      required: true
+      required: false
     }
   },
   data() {
@@ -39,6 +39,9 @@ export default {
     displayAlert() {
       this.isAlertVisible = true;
       setTimeout(() => this.closeAlert(), 3000); // Correct use of setTimeout
+    },
+    setMessage(msg){
+      this.alertMessage = msg;
     }
   }
 }
