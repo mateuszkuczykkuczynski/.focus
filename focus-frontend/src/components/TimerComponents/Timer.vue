@@ -1,5 +1,14 @@
 <template>
   <div class="flex justify-between gap-20">
+    <div v-if="hours !== '00'" class="flex justify-between gap-5">
+      <!-- Divs for Minutes -->
+      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+        {{ hours[0] }}
+      </div>
+      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+        {{ hours[1] }}
+      </div>
+    </div>
     <div class="flex justify-between gap-5">
       <!-- Divs for Minutes -->
       <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
@@ -19,7 +28,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -43,8 +51,12 @@ export default {
     }
   },
   computed: {
+    hours() {
+      const totalHours = Math.floor(this.currentTime / 3600);
+      return String(totalHours).padStart(2, '0');
+    },
     minutes() {
-      const totalMinutes = Math.floor(this.currentTime / 60);
+      const totalMinutes = Math.floor((this.currentTime % 3600) / 60);
       return String(totalMinutes).padStart(2, '0');
     },
     seconds() {
