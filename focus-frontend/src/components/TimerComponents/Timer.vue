@@ -1,29 +1,29 @@
 <template>
-  <div class="flex justify-between gap-20">
+  <div class="flex flex-wrap justify-between gap-5 md:gap-20">
     <div v-if="hours !== '00'" class="flex justify-between gap-5">
-      <!-- Divs for Minutes -->
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <!-- Divs for Hours -->
+      <div class="timer-card">
         {{ hours[0] }}
       </div>
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <div class="timer-card">
         {{ hours[1] }}
       </div>
     </div>
     <div class="flex justify-between gap-5">
       <!-- Divs for Minutes -->
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <div class="timer-card">
         {{ minutes[0] }}
       </div>
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <div class="timer-card">
         {{ minutes[1] }}
       </div>
     </div>
     <div class="flex justify-between gap-5">
       <!-- Divs for Seconds -->
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <div class="timer-card">
         {{ seconds[0] }}
       </div>
-      <div class="bg-[#303030] text-[250px] rounded-xl text-white py-5 px-10">
+      <div class="timer-card">
         {{ seconds[1] }}
       </div>
     </div>
@@ -93,3 +93,20 @@ export default {
   },
 }
 </script>
+<style>
+.timer-card {
+  background-color: #303030;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  min-width: 15vw; /* Adjust this value as needed */
+  font-size: 20vw; /* Adjust this value for font scaling */
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .timer-card {
+    min-width: 15rem; /* Adjust for larger screens */
+    font-size: 15rem; /* Adjust font size for larger screens */
+  }
+}
+</style>
