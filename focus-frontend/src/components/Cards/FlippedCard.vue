@@ -8,7 +8,7 @@
             </div>
             <!-- Front of the Card -->
             <div class="flip-back absolute inset-0 flex flex-col justify-center items-center bg-[#141414] rounded-xl px-12 text-slate-200 face transition-transform transform rotate-y-180">
-              <h1>{{ backTitle }}</h1>
+              <p class="text-xl font-bold my-5">{{ backTitle }}</p>
               <p>{{ backText }}</p>
             </div>
         </div>
