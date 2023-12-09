@@ -25,6 +25,11 @@
               <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
           </div>
           <button type="submit" class="w-full text-white bg-[#303030] hover:bg-[#505050] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register account</button>
+          <div class="my-5">
+            <RouterLink to="/log-in" class="text-sm hover:text-gray-500">
+              <span>Already have an account?</span>
+            </RouterLink>
+          </div>
         </form>
       </div>
     </div>
