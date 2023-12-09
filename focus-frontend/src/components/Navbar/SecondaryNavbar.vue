@@ -1,5 +1,6 @@
 <script setup>
 
+import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
 </script>
 
 <template>
@@ -11,34 +12,55 @@
             <li class="mx-6">
                 <RouterLink class="text-black"  to="/">Home</RouterLink>
             </li>
-            <li class="mx-6">
-                <RouterLink class="text-black"  to="/reports">Reports</RouterLink>
-            </li>
-            <li class="mx-6">
-                <RouterLink to="/session" class="text-black">Session</RouterLink>
-            </li>
-            <li class="mx-6">
-                <RouterLink to="/statistics" class="text-black">Statistics</RouterLink>
-            </li>
-            <li class="mx-6">
-                <RouterLink to="/log-in" class="text-black font-bold">
-                Login
+            <template v-if="user">
+              <li class="mx-6">
+                  <RouterLink class="text-black"  to="/">Contact</RouterLink>
+              </li>
+              <li class="mx-6">
+                  <RouterLink class="text-black"  to="/reports">Reports</RouterLink>
+              </li>
+              <li class="mx-6">
+                  <RouterLink to="/session" class="text-black">Session</RouterLink>
+              </li>
+              <li class="mx-6">
+                  <RouterLink to="/statistics" class="text-black">Statistics</RouterLink>
+              </li>
+              <li class="mx-6">
+                  <UserDropdown :user="user"/>
+              </li>
+            </template>
+            <template v-else>
+              <li class="mx-6">
+                  <RouterLink to="/log-in" class="text-black font-bold">
+                  Login
+                  </RouterLink>
+              </li>
+              <li class="mx-6">
+                <RouterLink to="/sign-up">
+                  <button class="btn rounded-xl bg-[#303030] py-2 px-5 text-white">
+                          Sign Up
+                  </button>
                 </RouterLink>
-            </li>
-            <li class="mx-6">
-              <RouterLink to="/sign-up">
-                <button class="btn rounded-xl bg-[#303030] py-2 px-5 text-white">
-                        Sign Up
-                </button>
-              </RouterLink>
-            </li>
+              </li>
+            </template>
+
         </ul>
     </nav>
 </template>
-
+<script>
+export default {
+  name: 'SecondaryNavbar',
+  data(){
+    return {
+      user: {
+        username: 'Banti016'
+      }
+    }
+  },
+}
+</script>
 <style scoped>
 .custom-text-shadow {
   text-shadow: 3px 1px 1px lightgray;
 }
-
 </style>
