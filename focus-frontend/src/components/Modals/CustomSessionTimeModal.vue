@@ -18,19 +18,19 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                           Hours
                         </label>
-                        <input v-model="hours" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number">
+                        <input v-model="hours" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" min="0" max="99">
                       </div>
                       <div class="mx-3">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                           Minutes
                         </label>
-                        <input v-model="minutes" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number">
+                        <input v-model="minutes" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" min="0" max="59">
                       </div>
                       <div class="mx-3">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                           Seconds
                         </label>
-                        <input v-model="seconds" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number">
+                        <input v-model="seconds" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" min="0" max="59">
                       </div>
                     </div>
                   </div>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
 
@@ -70,6 +70,18 @@ const addCustomTime = () => {
   emits('addItem', timeArray);
   open.value = false;
 }
+
+watch(hours, (newVal) => {
+  if (newVal > 99) hours.value = 99;
+});
+
+watch(minutes, (newVal) => {
+  if (newVal > 59) minutes.value = 59;
+});
+
+watch(seconds, (newVal) => {
+  if (newVal > 59) seconds.value = 59;
+});
 
 defineExpose({
   openModal,
