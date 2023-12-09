@@ -6,7 +6,7 @@ import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
 <template>
     <nav class="flex items-center justify-between w-[80%] mx-auto my-5 z-10">
         <div>
-            <RouterLink to="/" class="text-5xl text-[#303030] font-bold">.focus</RouterLink>
+            <RouterLink to="/" class="text-5xl text-[#303030] font-bold custom-text-shadow">.focus</RouterLink>
         </div>
         <ul class="flex items-center">
             <li class="mx-6">
@@ -58,3 +58,8 @@ export default {
 }
 
 </script>
+<style scoped>
+.custom-text-shadow {
+  text-shadow: 3px 1px 1px lightgray;
+}
+</style>
