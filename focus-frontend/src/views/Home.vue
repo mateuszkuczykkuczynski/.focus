@@ -3,9 +3,22 @@
 import {defineComponent} from "vue";
 import HomeHeroSection from "@/components/Home/HomeHeroSection.vue";
 import MainNavbar from "@/components/Navbar/MainNavbar.vue";
+import ProductivityToolsSection from "@/components/Home/ProductivityToolsSection.vue";
+import TestimonialsSection from "@/components/Home/TestimonialsSection.vue";
+import HomeCardsSection from "@/components/Home/HomeCardsSection.vue";
+import HomeCTASection from "@/components/Home/HomeCTASection.vue";
+import Footer from "@/components/Footers/Footer.vue";
 
 export default defineComponent({
-  components: {MainNavbar, HomeHeroSection}
+  components: {
+    Footer,
+    HomeCTASection,
+    HomeCardsSection,
+    TestimonialsSection,
+    ProductivityToolsSection,
+    MainNavbar,
+    HomeHeroSection,
+  }
 })
 
 
@@ -23,38 +36,14 @@ export default defineComponent({
         <div class="text-center my-7">
             <span class="text-white font-thin text-3xl">Reveal yourself</span>
         </div>
-        <div class="flex justify-evenly">
-            <div class="flip flex justify-evenly mt-24">
-                <div class="group h-96 w-96 perspective-[1000px] relative">
-                    <div class="flip-front h-full w-full rounded-xl shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <!-- Back of the Card -->
-                        <div class=" absolute inset-0 flex justify-center items-center bg-[#141414] rounded-xl face transition-transform transform rotate-y-0">
-                            <p class="text-7xl text-[#616161] transform rotate-90">.focus</p>
-                        </div>
-                        <!-- Front of the Card -->
-                        <div class="flip-back absolute inset-0 flex flex-col justify-center items-center bg-[#141414] rounded-xl px-12 text-slate-200 face transition-transform transform rotate-y-180">
-                            <h1>Helol</h1>
-                            <p>dsadasd</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flip flex justify-evenly mt-24">
-                <div class="group h-96 w-96 perspective-[1000px] relative">
-                    <div class="flip-front h-full w-full rounded-xl shadow-xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                        <!-- Back of the Card -->
-                        <div class=" absolute inset-0 flex justify-center items-center bg-[#141414] rounded-xl face transition-transform transform rotate-y-0">
-                            <p class="text-7xl text-[#616161] transform rotate-90">.focus</p>
-                        </div>
-                        <!-- Front of the Card -->
-                        <div class="flip-back absolute inset-0 flex flex-col justify-center items-center bg-[#141414] rounded-xl px-12 text-slate-200 face transition-transform transform rotate-y-180">
-                            <h1>Helol</h1>
-                            <p>dsadasd</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <HomeCardsSection/>
+   </div>
+
+    <ProductivityToolsSection/>
+
+    <TestimonialsSection/>
+
+    <HomeCTASection/>
 </div>
+<Footer/>
 </template>
